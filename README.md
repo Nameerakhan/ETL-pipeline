@@ -12,7 +12,7 @@ The pipeline is defined as an Airflow **DAG** (Directed Acyclic Graph) that runs
 
 `create_table` → `extract_apod` → `transform_apod_data` → `load_apod_data`
 
-![Pipeline DAG Graph](images/Graph%20pipeline.png)
+![Pipeline DAG Graph](images/dag_graph.png)
 
 ---
 
@@ -98,12 +98,12 @@ In the Airflow UI, go to **Admin → Connections** and create:
 - Password: `postgres`
 - Port: `5432`
 
-![Airflow Connections](images/connection_postgres%20and%20nasa_api.png)
+![Airflow Connections](images/connections.png)
 
 ### Trigger the DAG
 In the Airflow UI, unpause and trigger the **`nasa_apod_postgres`** DAG. A successful run shows all tasks in green:
 
-![Successful DAG Run](images/ETL_pipelinr%20test.png)
+![Successful DAG Run](images/dag_run_success.png)
 
 ---
 
@@ -126,4 +126,4 @@ SELECT * FROM apod_data;
 
 The `url` field in each row links to that day's astronomy image — for example, the keogram fetched by the pipeline:
 
-![APOD result fetched by the pipeline](images/Keogram.png)
+![APOD result fetched by the pipeline](images/keogram.png)
