@@ -46,7 +46,7 @@ with DAG(
     extract_apod=HttpOperator(
         task_id='extract_apod',
         http_conn_id='nasa_api',  ## Connection ID Defined In Airflow For NASA API
-        endpoint='planetary/apod', ## NASA API enpoint for APOD
+        endpoint='/planetary/apod', ## NASA API enpoint for APOD
         method='GET',
         data={"api_key":"{{ conn.nasa_api.extra_dejson.api_key}}"}, ## USe the API Key from the connection
         response_filter=lambda response:response.json(), ## Convert response to json
